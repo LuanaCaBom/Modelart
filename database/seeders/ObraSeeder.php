@@ -15,34 +15,34 @@ class ObraSeeder extends Seeder
     public function run()
     {
         Obra::create([
-            'nomeObra' => '',
-            'artistaObra' => '',
-            'tipoObra' => '',
-            'estiloObra' => '',
-            'imagemObra' => '',
-            'dataObra' => '',
+            'nomeObra' => 'Carnívoros',
+            'artistaObra' => 'Adriana Varejão',
+            'tipoObra' => 'Pintura',
+            'estiloObra' => 'Barroco',
+            'imagemObra' => '...',
+            'dataObra' => '2008',
 
         ],[
-            'nomeObra' => '',
-            'artistaObra' => '',
-            'tipoObra' => '',
-            'estiloObra' => '',
-            'imagemObra' => '',
-            'dataObra' => '',
+            'nomeObra' => 'Celacanto Provoca Maremoto',
+            'artistaObra' => 'Adriana Varejão',
+            'tipoObra' => 'Pintura',
+            'estiloObra' => 'Barroco',
+            'imagemObra' => '...',
+            'dataObra' => '2004',
         ],[
-            'nomeObra' => '',
-            'artistaObra' => '',
-            'tipoObra' => '',
-            'estiloObra' => '',
-            'imagemObra' => '',
-            'dataObra' => '',
+            'nomeObra' => 'Passarinhos - de Inhotim a Demini',
+            'artistaObra' => 'Adriana Varejão',
+            'tipoObra' => 'Pintura',
+            'estiloObra' => 'Barroco',
+            'imagemObra' => '...',
+            'dataObra' => '2003',
         ],[
-            'nomeObra' => '',
-            'artistaObra' => '',
-            'tipoObra' => '',
-            'estiloObra' => '',
-            'imagemObra' => '',
-            'dataObra' => '',
+            'nomeObra' => 'Linda do Rosário',
+            'artistaObra' => 'Adriana Varejão',
+            'tipoObra' => 'escultura',
+            'estiloObra' => 'Contemporânea',
+            'imagemObra' => '...',
+            'dataObra' => '2004',
         ]);
     }
 }
