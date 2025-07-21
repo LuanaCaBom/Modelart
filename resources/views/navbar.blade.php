@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Agenda de contatos</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Galeria de Obras de Arte</a>
 </nav>
 
 <div class="container-fluid">
@@ -16,19 +16,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('indexObras')}}">
                             <span data-feather="file"></span>
-                            Exibir Contatos Cadastrados
+                            Exibir Obras Cadastrados
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('novoContato')}}">
+                        <a class="nav-link" href="{{route('novaObra')}}">
                             <span data-feather="shopping-cart"></span>
-                            Cadastro de Contatos
+                            Cadastro de Obras
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('pesquisarContato')}}">
+                        <a class="nav-link" href="{{route('pesquisarObra')}}">
                             <span data-feather="users"></span>
-                            Pesquisar Contato
+                            Pesquisar Obras
                         </a>
                     </li>
                 </ul>

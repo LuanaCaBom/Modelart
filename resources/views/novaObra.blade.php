@@ -4,47 +4,47 @@
     <div class="card-body">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
-                <h1 class="mt-5 text-center">CADASTRE UM NOVO CONTATO</h1>
+                <h1 class="mt-5 text-center">CADASTRE UMA NOVA OBRA</h1>
             </div>
         </div>
-        <form action="{{route('gravaNovoContato')}}" method="POST">
+        <form action="{{route('gravaNovaObra')}}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="nomeContato">Nome:</label>
-                <input type="text" class="form-control" name="nomeContato"
-                    placeholder="Informe o nome do contato">
+                <label for="nomeObra">Nome:</label>
+                <input type="text" class="form-control" name="nomeObra"
+                       placeholder="Informe o nome da obra">
             </div>
             <div class="form-group">
-                <label for="nomeContato">Telefone:</label>
-                <input type="text" class="form-control" name="telContato" maxlength="11" onkeyup="formatarTelefone(this)"
-                    placeholder="">
+                <label for="artistaObra">Artista:</label>
+                <input type="text" class="form-control" name="artistaObra"
+                placeholder="Informe o artista da obra">
             </div>
             <div class="form-group">
-                <label for="nomeContato">E-mail:</label>
-                <input type="email" class="form-control" name="emailContato"
-                    placeholder="Informe o e-mail do contato">
+                <label for="tipoObra">Tipo:</label>
+                <input type="text" class="form-control" name="tipoObra"
+                placeholder="Informe o tipo da obra">
             </div>
+            <div class="form-group">
+                <label for="estiloObra">Estilo:</label>
+                <input type="text" class="form-control" name="estiloObra"
+                placeholder="Informe o estilo da obra">
+            </div>
+            <div class="form-group">
+                <label for="imagemObra">Imagem:</label>
+                <input type="text" class="form-control" name="imagemObra"
+                placeholder="Insira uma imagem da obra">
+            </div>
+            <div class="form-group">
+                <label for="dataObra">Data:</label>
+                <input type="date" class="form-control" name="dataObra"
+                placeholder="Informe a data da obra">
+            </div>
+        
             <button type="submit" class="btn btn-outline-primary btn-sm">Salvar</button>
             <button onclick="window.location.href='{{route('indexContatos')}}';" type="button"
                 class="btn btn-outline-danger btn-sm">Cancelar</button>
         </form>
     </div>
 </div>
-@endsection
-@section('javascript')
-<script type="text/javascript">
-
-    function formatarTelefone(input) {
-        // Remove todos os caracteres não numéricos
-        var telefone = input.value.replace(/\D/g, '');
-
-        // Insere os parênteses, espaço e traço nos lugares corretos
-        telefone = telefone.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
-
-        // Atualiza o valor do campo de entrada com o telefone formatado
-        input.value = telefone;
-    }
-
-</script>
 @endsection
 
