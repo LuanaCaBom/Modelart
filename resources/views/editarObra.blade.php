@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="dataObra">Data:</label>
-                <input type="date" class="form-control" name="dataObra"
+                <input type="number" class="form-control" name="dataObra"
                     value="{{ $dados->dataObra }}">
             </div>
         

@@ -35,7 +35,10 @@
                     <td>{{ $item->artistaObra }}</td>
                     <td>{{ $item->tipoObra }}</td>
                     <td>{{ $item->estiloObra }}</td>
-                    <td>{{ $item->imagemObra }}</td>
+                    <td>
+                        <img src="/storage/{{ $item->imagemObra }}">
+                       
+                    </td>
                     <td>{{ $item->dataObra }}</td>
                     <td style="text-align:center">
                         <a href="/obras/editar/{{ $item->id }}" class="btn btn-outline-primary">Editar</a>

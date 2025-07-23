@@ -7,7 +7,7 @@
                 <h1 class="mt-5 text-center">CADASTRE UMA NOVA OBRA</h1>
             </div>
         </div>
-        <form action="{{route('gravaNovaObra')}}" method="POST">
+        <form action="{{route('gravaNovaObra')}}" method="POST" enctype='multipart/form-data'>
             @csrf
             <div class="form-group">
                 <label for="nomeObra">Nome:</label>
@@ -29,19 +29,18 @@
                 <input type="text" class="form-control" name="estiloObra"
                 placeholder="Informe o estilo da obra">
             </div>
-            <div class="form-group">
-                <label for="imagemObra">Imagem:</label>
-                <input type="text" class="form-control" name="imagemObra"
-                placeholder="Insira uma imagem da obra">
+            <div class="custom-file">
+                <label class="custom-file-lable" for="imagemObra">Imagem:</label>
+                <input type="file" class="custom-file-input" name="imagemObra">
             </div>
             <div class="form-group">
                 <label for="dataObra">Data:</label>
-                <input type="date" class="form-control" name="dataObra"
+                <input type="number" class="form-control" name="dataObra"
                 placeholder="Informe a data da obra">
             </div>
         
             <button type="submit" class="btn btn-outline-primary btn-sm">Salvar</button>
-            <button onclick="window.location.href='{{route('indexContatos')}}';" type="button"
+            <button onclick="window.location.href='/obras';" type="button"
                 class="btn btn-outline-danger btn-sm">Cancelar</button>
         </form>
     </div>

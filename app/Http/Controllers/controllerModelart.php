@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Modelart;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class controllerModelart extends Controller
 {
@@ -28,12 +31,13 @@ class controllerModelart extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('imagemObra')->store('imagens', 'public');
         $dados = new Modelart();
         $dados->nomeObra = $request->input('nomeObra');
         $dados->artistaObra = $request->input('artistaObra');
         $dados->tipoObra = $request->input('tipoObra');
         $dados->estiloObra = $request->input('estiloObra');
-        $dados->imagemObra = $request->input('imagemObra');
+        $dados->imagemObra = $path;
         $dados->dataObra = $request->input('dataObra');
         $dados->save();
         return redirect('/obras')->with('success', 'Nova obra cadastrada com sucesso.');
@@ -54,8 +58,9 @@ class controllerModelart extends Controller
     {
         $dados = Modelart::find($id);
         if(isset($dados)){
-            return view('editarObra', compact('dados'));
+            return view('editarObra', compact('dados'))->with('success', 'Nova obra editada com sucesso.');
         }
+        return redirect('/obras')->with('danger', 'Erro ao tentar editar obra.');
     }
 
     /**
@@ -72,7 +77,7 @@ class controllerModelart extends Controller
             $dados->imagemObra = $request->input('imagemObra');
             $dados->dataObra = $request->input('dataObra');
             $dados->save();
-            return redirect('/obras')->with('success', 'Nova obra cadastrada com sucesso.');
+            return redirect('/obras')->with('success', 'Nova obra atualizada com sucesso.');
         }
         return redirect('/obras')->with('danger', 'Erro ao tentar atualizar obra.');
     }
@@ -81,13 +86,15 @@ class controllerModelart extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
+    {   
         $dados = Modelart::find($id);
         if(isset($dados)){
+            $imagemObra = $dados->imagemObra;
+            Storage::disk('public')->delete($imagemObra);
             $dados->delete();
-            return redirect('/obras')->with('success', 'Nova obra cadastrada com sucesso.');
+            return redirect('/obras')->with('success', 'Obra deletada com sucesso.');
         }
-        return redirect('/obras')->with('danger', 'Erro ao tentar atualizar obra.');
+        return redirect('/obras')->with('danger', 'Erro ao tentar deletar obra.');
     }
 
     public function pesquisarObra(){
@@ -95,9 +102,19 @@ class controllerModelart extends Controller
     }
 
     public function procurarObra(Request $request){
-        $nome = $request->input('nomeContato');
-        $dados = DB::table('obras')->select('id', 'nomeObra', 'artistaObra', 'tipoObra', 'estiloObra', 'imagemObra', 'dataObra')
+        $nome = $request->input('nomeObra');
+        $dados = DB::table('modelarts')->select('id', 'nomeObra', 'artistaObra', 'tipoObra', 'estiloObra', 'imagemObra', 'dataObra')
                  ->where(DB::raw('lower(nomeObra)'), 'like', '%' . strtolower($nome) . '%')->get();
         return view('exibirObras', compact('dados'));
+    }
+
+    public function download($id)
+    {
+        $dados = Modelart::find($id);
+        if(isset($dados)){
+            return Storage::disk('public')->download($dados->imagemObra)->with('success', 'Imagem baixada com sucesso.');;
+        }else{
+            return redirect('/obras')->with('danger', 'Erro ao tentar baixar.');
+        }
     }
 }
