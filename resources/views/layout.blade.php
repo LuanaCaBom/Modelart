@@ -10,19 +10,13 @@
 <body>
     @component('navbar')
     @endcomponent
-    <main role="main" class="flex-shrink-0">
+    <main role="main" class="flex-shrink-0 col-md-10 row-md-12">
         <div class="container">
             @hasSection('content')
                 @yield('content')
             @endif
         </div>
     </main>
-
-    <footer class="footer mt-auto py-3 navbar-fixed-bottom">
-        <div class="container">
-            <p class="text-center"><span class="text-muted">Todos os direitos reservados a &copy;Copyright</span></p>
-        </div>
-    </footer>
     @hasSection('javascript')
         @yield('javascript')
     @endif

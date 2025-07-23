@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #e3e9f7;
+    background-color: #cbe4f8;
 }
 
 footer {
@@ -22,6 +22,11 @@ footer {
     bottom: 0;
     width: 100%;
     text-align: center;
+    justify-content: left;
+}
+
+.footer-margin {
+    margin-left: 0.5rem;
 }
 
 .feather {
@@ -68,7 +73,11 @@ footer {
 }
 
 .sidebar .nav-link.active {
-    color: #007bff;
+    color: #3b9c28;
+}
+
+.sidebar .nav-link:hover {
+    color: #3b9c28;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -96,7 +105,8 @@ footer {
 .navbar-brand {
     padding-top: .75rem;
     padding-bottom: .75rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: #000000;
 }
 
 .navbar .form-control {

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark navbar-centro fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar navbar-dark navbar-centro fixed-top bg-warning flex-md-nowrap p-0 shadow">
     <a class="navbar-brand" href="#">Galeria de Obras de Arte</a>
 </nav>
 
@@ -31,9 +31,15 @@
                             Pesquisar Obras
                         </a>
                     </li>
+                    <footer class="footer mt-auto py-3 navbar-fixed-bottom ">
+                        <div class="footer-margin">
+                            <p class="text-start text-muted">Todos os direitos reservados a &copy;Copyright</p>
+                        </div>
+                    </footer>
                 </ul>
             </div>
         </nav>
     </div>
+
 </div>
 
